@@ -1,8 +1,19 @@
-ORG 0x7c00
+ORG 0
 BITS 16
 
-; http://www.ctyme.com/intr/rb-0106.htm
+jmp 0x7c0:start
+
 start:
+    cli ; Clear Interrupts
+
+    mov ax, 0x7c0
+    mov ds, ax ; Data Segment
+    mov es, ax ; Extra Segment
+    mov ss, ax
+    mov sp, 0x7c00
+
+    sti ; Enable Interrupts
+
     mov si, message
     call print
     jmp $
