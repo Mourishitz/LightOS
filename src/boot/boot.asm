@@ -28,7 +28,7 @@ step2:
     cli
     lgdt[gdt_descriptor]
     mov eax, cr0
-    mov eax, 0x1
+    or eax, 0x1
     mov cr0, eax
 
     jmp CODE_SEG:load32
@@ -62,6 +62,7 @@ gdt_end:
 gdt_descriptor:
     dw gdt_end - gdt_start-1
     dd gdt_start
+
  [BITS 32]
  load32:
     mov eax, 1          ; starting sector where we load from
@@ -128,5 +129,3 @@ ata_lba_read:
 
 times 510-($ - $$) db 0
 dw 0xAA55 
-
-buffer:
