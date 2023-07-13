@@ -3,6 +3,6 @@
 
 #include <stddef.h>
 
-void* memset(coid* prt, int c, size_t size);
+void* memset(void* prt, int c, size_t size);
 
 #endif // !MEMORY_H

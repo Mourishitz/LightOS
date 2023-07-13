@@ -2,10 +2,12 @@
 
 void* memset(void* ptr, int c, size_t size)
 {
-  char* c_ptr = (char*) prt;
+  char* c_ptr = (char*) ptr;
 
   for (int i = 0; i < size; i++)
   {
-    c_prt[i] = (char) c;
+    c_ptr[i] = (char) c;
   }
+
+  return ptr;
 }
